@@ -1,4 +1,5 @@
-# CNATool - Complex Network Analysis Tool
+---
+title: 'CNATool - Complex Network Analysis Tool'
 tags:
   - CNATool
   - complex network analysis
@@ -9,16 +10,46 @@ tags:
   - centrality
   - Pajek 
 authors:
+  - name: Christopher Pockrandt
+    affiliation: "1, 2"
+    corresponding: true
+    email: pockrandt@jhu.edu
+  - name: Aleksey V. Zimin
+    affiliation: "1, 2"
+  - name: Steven L. Salzberg
+    affiliation: "1, 2, 3, 4"
+    corresponding: true
+    email: salzberg@jhu.edu
+
+authors:
   - name: Roberto Luiz Souza Monteiro
-    orcid: 0000-0002-3931-5953
-    equal-contrib: true
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
+    affiliation: "1, 2"
+    corresponding: true
+    email: roberto.monteiro@fieb.org.br
   - name: Renata Souza Freitas Dantas Barreto
-    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
     affiliation: 2
+    corresponding: true
+    email: renatasouzabarreto@gmail.com
   - name: Hernane Borges de Barros Pereira
-    corresponding: true # (This is how to denote the corresponding author)
+    affiliation: "1, 2"
+    corresponding: true
+    email: hbbpereira@gmail.com
+  - name: Andréia Rita da Silva
     affiliation: 3
+    corresponding: true
+    email: andreiarita@gmail.com
+  - name: Alexandre do Nascimento Silva
+    affiliation: "2, 3"
+    corresponding: true
+    email: alnsilva@uesc.br
+  - name: José Roberto de Araújo Fontoura
+    affiliation: 2
+    corresponding: true
+    email: jfontoura@uneb.br
+  - name: Marcos Batista Figueredo
+    affiliation: 2
+    corresponding: true
+    email: mbfigueredo@uneb.br
 affiliations:
  - name: SENAI CIMATEC University, Brasil
    index: 1
@@ -28,6 +59,8 @@ affiliations:
    index: 3
 date: 29 Dezembro 2022
 bibliography: paperCNATool.bib
+
+---
 
 # Summary
 
@@ -54,6 +87,161 @@ These similarities allow the use of the same software for the analysis of differ
 
 This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [39]. Table 1 presents a summary of the main features presented by each of the analyzed programs.
 
-CNATool's development took these aspects into consideration, prioritizing accuracy and speed, but not neglecting parameters such as usability and mobility.
+CNATool's development took these aspects into consideration, prioritizing accuracy and speed, but not neglecting parameters such as usability and mobility (**Table 1**).
+
+<div align="center">
+ 
+| Feature	| CNATool	| Gephi	| Pajek	| SocNetV |
+| :---- | ---- | ---- | ---- | ----: |
+| Has high accuracy	| Yes	| Yes	| Yes	| Yes |
+| Is user-friendly	| Yes	| Yes	| No	| No |
+| Runs on Windows	| Yes	| Yes	| Yes	| Yes |
+| Runs on Linux	| Yes	| Yes	| No | Yes |
+| Runs on macOS	| Yes	| Yes	| No	| Yes |
+| Runs on Android	| Yes	| No	| No	| No |
+| Runs on iOS	| Yes	| No	| No	| No |
+| Runs direct on web	| Yes	| No	| No	| No |
+| Calculates Efficiency	| Yes	| No	| No	| No |
+| Calculates Incidence-fidelity	| Yes	| No	| No	| No |
+| Uses the GPU to speed up calculations	| Yes	| No	| No	| No |
+  
+</div>
+
+Table 1: Summary of the main features presented by each of the analyzed programs.
+
+# Software Framework 
+
+The mind map presented in **Figure 1** allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in **Figure 2**. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
+
+Figure 2: Use case diagram.
+
+Software Architecture
+
+The software consists of four elements: front end, CNATool library, CNALib library (Complex Network Analysis Library) and MaiaLib library (MaiaScript Library). The front end was implemented in HTML, CSS, JavaScript and MaiaScript. MaiaScript is a high-level, object-oriented programming language developed specifically for the construction of scientific applications. It has an integrated CAS (Computer Algebra System), capable of performing linear algebra operations, calculations with complex numbers, matrices operations and, through a second CAS, Algebrite, integrated into the MaiaStudio development environment, performs differential and symbolic integral calculations and operations with arbitrary number precision. MaiaScript code embedded in the front end is compiled at runtime and converted to JavaScript. The CNATool library contains high-level functions to facilitate the generation of reports by the application. This library was developed in Javascript.
+
+The CNALib library was completely written in MaiaScript but, unlike the code embedded in the front end, it is precompiled to JavaScript, a necessary requirement due to security restrictions present in most browsers that prevent non-JavaScript code loading through the web page.
+
+3.2 Software Functionalities
+
+Currently, CNATool offers the following features:
+●	Create artificial networks (e.g., complete graph, random graph, scale free graph, small world grade, hybrid graph and semantic networks (Command Line Interface - CLI only)).
+●	Display the network graph.
+●	Define the graph layout algorithm.
+●	Calculate basic properties of the graph: average degree, density, average clustering coefficient, average shortest path, diameter, efficiency of the graph and incidence-fidelity index (CLI only).
+●	Use the GPU, if available, to speed up property calculations.
+●	See detailed properties of the vertices: degree, clustering coefficient and closeness and betweenness centralities.
+●	Exports CSV file with the incidences fidelities of each pair of semantic network words (CLI only).
+●	Save graph in Pajek and JSON format.
+●	Export graph in SVG format.
+●	Save a summary of the graph's properties in HTML format.
+
+3.3 Sample code snippets analysis
+
+The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
+
+*Vertices 3
+1 "v1" 1.4938470125198364 0.5946584343910217 1
+2 "v2" -1.3428300619125366 0.9276683330535889 1
+3 "v3" -0.21226459741592407 -1.7475401163101196 1
+*Arcs
+1 2 1
+1 3 1
+2 1 1
+2 3 1
+3 1 1
+3 2 1
+
+# Implementation and Empirical Results
+
+The program herein described was developed considering the principle of reusability. Modeling details and empirical results are presented below.
+
+Implementation
+
+The application was modeled according to the object-oriented paradigm. **Figure 3** shows the diagram of the implemented classes and their interdependencies.
+
+Figure 3: Class diagram.
+
+The Property class defines graph properties that will be calculated by the CNA class. This class, in turn, returns calculated values for the CNATool class, which uses them to produce the reports made available by the application. The CNATool class also provides methods used by the application when running on the command line, allowing to create graphs with complete, random, scale-free, small world and hybrid topologies, as well as batch files processing. The command line tool calls the run method of this class to process the arguments passed to the application and execute the corresponding methods provided by the CNA class.
+
+The web interface uses these three classes to provide all its functionality, privileging usability without compromising the performance and accuracy required in the analysis of complex and social networks. **Figure 4** shows the web interface when running from a desktop browser. In browsers for mobile devices, the web page reorganizes itself and assumes a more appropriate layout for small screens (responsiveness).
+
+Figure 4: CNATool program interface.
+
+Unit tests
+
+Any computer program is subject to failure due to coding errors in the program itself or in the libraries and frameworks used in its construction. To minimize this problem, it is necessary to carry out exhaustive tests with each new version of the application. In this project we have implemented a set of unit tests that is performed at each change within its source code. These tests were implemented using the automation test engine of the MaiaScript programming language.
+
+The test script executes each of the functions of the CNA library comparing the results obtained with values previously calculated and validated using other network analysis softwares (Gephi, Pajek and SocNetV).
+
+The tests are repeated countless times to eliminate the possibility of sporadic errors.
+
+4.3 Empirical Results
+
+In order to validate the accuracy of the results provided by CNATool, we created the network shown in **Figure 5** and calculated its properties using CNATool, Gephi, Pajek and SocNetV tools, the last three being the ones that most appear in the literature.
+
+Figure 5: Network used to measure the precision of the results presented by CNATool.
+
+From the results presented in **Table 2**, it can be seen that the precision of the calculations of the four tools is very close. The Pajek application showed better accuracy than the others when calculating density, average clustering coefficient and average shortest path. In relation to the other properties, CNATool, Pajek and SocNetV applications presented the same results. The Gephi tool showed less precision than the others when calculating the density, the average clustering coefficient and the average shortest path.
+
+These differences, however, do not invalidate any of the tools presented, as for most problems involving analysis of complex networks, 3 decimal digits are sufficient
+
+<div align="center">
+ 
+| Property	| CNATool	| Gephi	| Pajek	| SocNetV |
+| :---- | ---- | ---- | ---- | ----: |
+| Vertices	| 50	| 50	| 50	| 50 |
+| Edges	| 140	| 140	| 140	| 140 |
+| Density	| 0.05710000	| 0.05700000	| 0.05714286	| 0.05710000 |
+| Average Degree	| 2.8	| 2.8	| 2.8	| 2.8 |
+| Average Clustering Coefficient	| 0.34430000	| 0.34400000	| 0.34431746	| 0.34400000 |
+| Average Shortest Path	| 2.45140	| 2.45100	| 2.45143	| 2.45140 |
+| Diameter	| 5	| 5	| 5	| 5 |
+| Global Efficiency	| 0.4520	| No	| No	| No |
+  
+</div>
+
+Table 2: Comparison of results obtained using the main complex network analysis software.
+
+# Illustrative Examples
+
+As an illustration of the process of visualizing and calculating properties of a graph using CNATool, we will create a random network with 20 vertices and average degree 2. The steps to accomplish this task are as follows:
+1.	Click the Random Graph option.
+2.	Enter the number of vertices (20).
+3.	Select the desired number of edges (in this case 0, as the network will be created by defining the average degree).
+4.	Enter the probability of edge formation (in this case 0, as the network will be created by defining the average degree).
+5.	Define the average degree (2).
+
+After performing these steps, the network will be created and displayed on the application screen.
+
+To calculate the properties of the created graph, select the Calculate Properties option in the properties panel.
+
+The created graph presents a random organization of the vertices. To modify this layout, a layout algorithm must be selected in the properties panel. Two algorithms are supported: Force Atlas 2 and No Overlap.
+
+**Figure 6** presents the activity diagrams of CNATool's main functionalities.
+
+Figure 6: Activity diagram of the main functionalities of the CNATool program
+
+# Impact
+
+We often encounter problems that can be represented using network diagrams (graphs). These problems may involve the analysis of one, dozens, hundreds or thousands of complex networks. Analyzes of this type require batch processing, which is not always easy to implement using the software most commonly used in this activity. On the other hand, many ideas arise when a researcher is away from a computer with appropriate tools for carrying out concept proofs. In this context, having a software that allows the analysis of social and complex networks from a cell phone or tablet and that still allows subsequent detailed analysis of phenomena observed in a large number of networks easily and quickly, represents great impact. This project seeks to meet these needs, combining ease usage with the accuracy required in this type of investigation. Although installation is not necessary, the download for offline use is available and according to the website https://npm-stat.com the CNATool tool has had 5122 downloads since its launch in September 2020. It also has been used by our undergraduate, master's and doctoral students at the State University of Bahia, Federal University of Bahia and SENAI-CIMATEC University Center.
+
+# Conclusions
+
+The CNATool tool was developed having in mind the analysis of complex and social networks from any device connected to the Internet. This application offers a friendly and intuitive user interface, while providing accurate results and detailed reports of global and local network properties being analyzed.
+
+The program allows exporting of results in the most common file formats and also provides a command line tool that allows batch processing, contributing to speed up analysis processes when an experiment requires calculation of properties of a large number of networks.
+
+The project used good software engineering practices, valuing the reusability and maintenance of the code, since it is an open source project and contributions are expected to be made to its development.
+
+The tool presented similar results to the most used applications in complex and social network analysis, having also fulfilled the objective of its project: to offer an easy-to-use software, available from any device connected to the Internet.
+
+# Conflict of Interest 
+
+We wish to confirm that there are no known conflicts of interest associated with this publication and there has been no significant financial support for this work that could have influenced its outcome.
+
+# Acknowledgements 
+
+Fundação de Amparo à Pesquisa do Estado da Bahia, an agency for induction and promotion of research and scientific and technological innovation in the State of Bahia, Grant No. BOL0239/2018 - Renata Souza Freitas Dantas Barreto.
+
 
 # References

@@ -1,5 +1,4 @@
----
-## CNATool - Complex Network Analysis Tool'
+# CNATool - Complex Network Analysis Tool
 tags:
   - CNATool
   - complex network analysis

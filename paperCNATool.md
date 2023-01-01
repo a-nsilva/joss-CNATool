@@ -112,17 +112,9 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 
 The mind map presented in **Figure 1** allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in **Figure 2**. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
 
-<figure>
-    <img src="Picture1.png"
-         alt="Albuquerque, New Mexico">
-    <figcaption>Figure1: insert text.</figcaption>
-</figure>
+![Class diagram](Picture1.png)
 
-<figure>
-    <img src="Picture2.png"
-         alt="Albuquerque, New Mexico">
-    <figcaption>Figure 2: Use case diagram.</figcaption>
-</figure>
+![Use case diagram](Picture2.png)
 
 ## Software Architecture
 
@@ -149,6 +141,7 @@ Currently, CNATool offers the following features:
 
 The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
 
+<code>
 *Vertices 3
 1 "v1" 1.4938470125198364 0.5946584343910217 1
 2 "v2" -1.3428300619125366 0.9276683330535889 1
@@ -160,6 +153,7 @@ The CNATool supports two network file formats: Pajek and JSON. The Pajek format 
 2 3 1
 3 1 1
 3 2 1
+</code>
 
 # Implementation and Empirical Results
 

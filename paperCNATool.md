@@ -141,8 +141,7 @@ Currently, CNATool offers the following features:
 
 The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
 
-<code>
-*Vertices 3
+<code> *Vertices 3
 1 "v1" 1.4938470125198364 0.5946584343910217 1
 2 "v2" -1.3428300619125366 0.9276683330535889 1
 3 "v3" -0.21226459741592407 -1.7475401163101196 1

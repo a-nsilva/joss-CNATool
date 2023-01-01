@@ -80,7 +80,7 @@ Next, we will present the requirements taken into consideration for the CNATool 
 
 # Problems and Background 
 
-@Newman2003 presents the main concepts involved in complex and social network analysis. The author discusses the types of networks, topologies, local and global properties. Regarding the types of networks, Newman highlights social, informational, technological and biological networks. These networks, despite having different natures, present common properties such as number of vertices, number of edges, density [@Pereira2016; @Chatterjee2007], average degree, average clustering coefficient [@Schank2005], average shortest path [@Johnson1977], diameter [@Razzaque2008] and efficiency [@Latora2001]. And even at micro scale, similar parameters are observed, highlighting the clustering coefficient and the closeness [@Freeman1978; @Freeman1979][28] and betweenness [@Freeman1977; @Brandes2001; @Barthelemy2004; @Curado2022] centralities. With regard to topologies, networks of apparently different natures, such as social and biological, often present phenomena common to small-world [@Watts1999; @Marchiori2000; @Emmert2006; @Bakshy2011] and scale-free networks [@Barabasi2002; @Crucitti2003].
+@Newman2003 presents the main concepts involved in complex and social network analysis. The author discusses the types of networks, topologies, local and global properties. Regarding the types of networks, Newman highlights social, informational, technological and biological networks. These networks, despite having different natures, present common properties such as number of vertices, number of edges, density [@Pereira2016; @Chatterjee2007], average degree, average clustering coefficient [@Schank2005], average shortest path [@Johnson1977], diameter [@Razzaque2008] and efficiency [@Latora2001]. And even at micro scale, similar parameters are observed, highlighting the clustering coefficient and the closeness [@Freeman1978; @Freeman1979] citacao 28 and betweenness [@Freeman1977; @Brandes2001; @Barthelemy2004; @Curado2022] centralities. With regard to topologies, networks of apparently different natures, such as social and biological, often present phenomena common to small-world [@Watts1999; @Marchiori2000; @Emmert2006; @Bakshy2011] and scale-free networks [@Barabasi2002; @Crucitti2003].
 
 These similarities allow the use of the same software for the analysis of different phenomena in different study objects, as long as these phenomena and objects can be expressed as network diagrams (graphs).
 
@@ -112,30 +112,30 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 
 The mind map presented in **Figure 1** allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in **Figure 2**. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
 
-Figure 2: Use case diagram.
+![Use case diagram](Picture2.png)
 
-Software Architecture
+## Software Architecture
 
 The software consists of four elements: front end, CNATool library, CNALib library (Complex Network Analysis Library) and MaiaLib library (MaiaScript Library). The front end was implemented in HTML, CSS, JavaScript and MaiaScript. MaiaScript is a high-level, object-oriented programming language developed specifically for the construction of scientific applications. It has an integrated CAS (Computer Algebra System), capable of performing linear algebra operations, calculations with complex numbers, matrices operations and, through a second CAS, Algebrite, integrated into the MaiaStudio development environment, performs differential and symbolic integral calculations and operations with arbitrary number precision. MaiaScript code embedded in the front end is compiled at runtime and converted to JavaScript. The CNATool library contains high-level functions to facilitate the generation of reports by the application. This library was developed in Javascript.
 
 The CNALib library was completely written in MaiaScript but, unlike the code embedded in the front end, it is precompiled to JavaScript, a necessary requirement due to security restrictions present in most browsers that prevent non-JavaScript code loading through the web page.
 
-3.2 Software Functionalities
+## Software Functionalities
 
 Currently, CNATool offers the following features:
 
-●	Create artificial networks (e.g., complete graph, random graph, scale free graph, small world grade, hybrid graph and semantic networks (Command Line Interface - CLI only)).
-●	Display the network graph.
-●	Define the graph layout algorithm.
-●	Calculate basic properties of the graph: average degree, density, average clustering coefficient, average shortest path, diameter, efficiency of the graph and incidence-fidelity index (CLI only).
-●	Use the GPU, if available, to speed up property calculations.
-●	See detailed properties of the vertices: degree, clustering coefficient and closeness and betweenness centralities.
-●	Exports CSV file with the incidences fidelities of each pair of semantic network words (CLI only).
-●	Save graph in Pajek and JSON format.
-●	Export graph in SVG format.
-●	Save a summary of the graph's properties in HTML format.
+- Create artificial networks (e.g., complete graph, random graph, scale free graph, small world grade, hybrid graph and semantic networks (Command Line Interface - CLI only)).
+-	Display the network graph.
+-	Define the graph layout algorithm.
+-	Calculate basic properties of the graph: average degree, density, average clustering coefficient, average shortest path, diameter, efficiency of the graph and incidence-fidelity index (CLI only).
+-	Use the GPU, if available, to speed up property calculations.
+-	See detailed properties of the vertices: degree, clustering coefficient and closeness and betweenness centralities.
+-	Exports CSV file with the incidences fidelities of each pair of semantic network words (CLI only).
+-	Save graph in Pajek and JSON format.
+-	Export graph in SVG format.
+-	Save a summary of the graph's properties in HTML format.
 
-3.3 Sample code snippets analysis
+## Sample code snippets analysis
 
 The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
 
@@ -155,19 +155,19 @@ The CNATool supports two network file formats: Pajek and JSON. The Pajek format 
 
 The program herein described was developed considering the principle of reusability. Modeling details and empirical results are presented below.
 
-Implementation
+## Implementation
 
 The application was modeled according to the object-oriented paradigm. **Figure 3** shows the diagram of the implemented classes and their interdependencies.
 
-Figure 3: Class diagram.
+![Class diagram](Picture3.png)
 
 The Property class defines graph properties that will be calculated by the CNA class. This class, in turn, returns calculated values for the CNATool class, which uses them to produce the reports made available by the application. The CNATool class also provides methods used by the application when running on the command line, allowing to create graphs with complete, random, scale-free, small world and hybrid topologies, as well as batch files processing. The command line tool calls the run method of this class to process the arguments passed to the application and execute the corresponding methods provided by the CNA class.
 
 The web interface uses these three classes to provide all its functionality, privileging usability without compromising the performance and accuracy required in the analysis of complex and social networks. **Figure 4** shows the web interface when running from a desktop browser. In browsers for mobile devices, the web page reorganizes itself and assumes a more appropriate layout for small screens (responsiveness).
 
-Figure 4: CNATool program interface.
+![CNATool program interface](Picture4.png)
 
-Unit tests
+## Unit tests
 
 Any computer program is subject to failure due to coding errors in the program itself or in the libraries and frameworks used in its construction. To minimize this problem, it is necessary to carry out exhaustive tests with each new version of the application. In this project we have implemented a set of unit tests that is performed at each change within its source code. These tests were implemented using the automation test engine of the MaiaScript programming language.
 
@@ -175,11 +175,11 @@ The test script executes each of the functions of the CNA library comparing the 
 
 The tests are repeated countless times to eliminate the possibility of sporadic errors.
 
-4.3 Empirical Results
+## Empirical Results
 
 In order to validate the accuracy of the results provided by CNATool, we created the network shown in **Figure 5** and calculated its properties using CNATool, Gephi, Pajek and SocNetV tools, the last three being the ones that most appear in the literature.
 
-Figure 5: Network used to measure the precision of the results presented by CNATool.
+![Network used to measure the precision of the results presented by CNATool](Picture5.png)
 
 From the results presented in **Table 2**, it can be seen that the precision of the calculations of the four tools is very close. The Pajek application showed better accuracy than the others when calculating density, average clustering coefficient and average shortest path. In relation to the other properties, CNATool, Pajek and SocNetV applications presented the same results. The Gephi tool showed less precision than the others when calculating the density, the average clustering coefficient and the average shortest path.
 
@@ -219,7 +219,7 @@ The created graph presents a random organization of the vertices. To modify this
 
 **Figure 6** presents the activity diagrams of CNATool's main functionalities.
 
-Figure 6: Activity diagram of the main functionalities of the CNATool program
+![Activity diagram of the main functionalities of the CNATool program](Picture6.png)
 
 # Impact
 

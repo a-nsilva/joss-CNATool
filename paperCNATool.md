@@ -112,7 +112,17 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 
 The mind map presented in **Figure 1** allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in **Figure 2**. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
 
-![Use case diagram](Picture2.png)
+<figure>
+    <img src="Picture1.png"
+         alt="Albuquerque, New Mexico">
+    <figcaption>Figure1: insert text.</figcaption>
+</figure>
+
+<figure>
+    <img src="Picture2.png"
+         alt="Albuquerque, New Mexico">
+    <figcaption>Figure 2: Use case diagram.</figcaption>
+</figure>
 
 ## Software Architecture
 
@@ -223,7 +233,7 @@ The created graph presents a random organization of the vertices. To modify this
 
 # Impact
 
-We often encounter problems that can be represented using network diagrams (graphs). These problems may involve the analysis of one, dozens, hundreds or thousands of complex networks. Analyzes of this type require batch processing, which is not always easy to implement using the software most commonly used in this activity. On the other hand, many ideas arise when a researcher is away from a computer with appropriate tools for carrying out concept proofs. In this context, having a software that allows the analysis of social and complex networks from a cell phone or tablet and that still allows subsequent detailed analysis of phenomena observed in a large number of networks easily and quickly, represents great impact. This project seeks to meet these needs, combining ease usage with the accuracy required in this type of investigation. Although installation is not necessary, the download for offline use is available and according to the website https://npm-stat.com the CNATool tool has had 5122 downloads since its launch in September 2020. It also has been used by our undergraduate, master's and doctoral students at the State University of Bahia, Federal University of Bahia and SENAI-CIMATEC University Center.
+We often encounter problems that can be represented using network diagrams (graphs). These problems may involve the analysis of one, dozens, hundreds or thousands of complex networks. Analyzes of this type require batch processing, which is not always easy to implement using the software most commonly used in this activity. On the other hand, many ideas arise when a researcher is away from a computer with appropriate tools for carrying out concept proofs. In this context, having a software that allows the analysis of social and complex networks from a cell phone or tablet and that still allows subsequent detailed analysis of phenomena observed in a large number of networks easily and quickly, represents great impact. This project seeks to meet these needs, combining ease usage with the accuracy required in this type of investigation. Although installation is not necessary, the download for offline use is available and according to the website [npm-stat](https://npm-stat.com) the CNATool tool has had 5122 downloads since its launch in September 2020. It also has been used by our undergraduate, master's and doctoral students at the State University of Bahia, Federal University of Bahia and SENAI-CIMATEC University Center.
 
 # Conclusions
 

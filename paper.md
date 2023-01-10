@@ -11,7 +11,7 @@ tags:
   - Pajek 
 authors:
   - name: Roberto Luiz Souza Monteiro
-  - orcid: 0000-0002-3100-523X
+    orcid: 0000-0001-7436-8818
     affiliation: "1, 2"
     corresponding: true
     email: roberto.monteiro@fieb.org.br
@@ -20,6 +20,7 @@ authors:
     corresponding: true
     email: renatasouzabarreto@gmail.com
   - name: Hernane Borges de Barros Pereira
+    orcid: 0000-0001-7436-8818
     affiliation: "1, 2"
     corresponding: true
     email: hbbpereira@gmail.com
@@ -28,14 +29,17 @@ authors:
     corresponding: true
     email: andreiarita@gmail.com
   - name: Alexandre do Nascimento Silva
+    orcid: 0000-0001-7436-8818
     affiliation: "2, 3"
     corresponding: true
     email: alnsilva@uesc.br
   - name: José Roberto de Araújo Fontoura
+    orcid: 0000-0001-7436-8818
     affiliation: 2
     corresponding: true
     email: jfontoura@uneb.br
   - name: Marcos Batista Figueredo
+    orcid: 0000-0001-7436-8818
     affiliation: 2
     corresponding: true
     email: mbfigueredo@uneb.br
@@ -100,11 +104,11 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 
 # Software Framework 
 
-The mind map presented in **Figure 1** allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in **Figure 2**. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
+The mind map presented in \autoref{fig:fig1} allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in \autoref{fig:pic2}. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
 
-![Class diagram. `texto[1]`\label{fig:pic1}](Picture1.png){ width=90% }
+![Class diagram.\label{fig:pic1}](Picture1.png){ width=90% }
 
-![Use case diagram](Picture2.png)
+![Use case diagram.\label{fig:pic2}](Picture2.png) { width=90% }
 
 ## Software Architecture
 
@@ -131,7 +135,8 @@ Currently, CNATool offers the following features:
 
 The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
 
-<code> *Vertices 3
+...
+*Vertices 3
 1 "v1" 1.4938470125198364 0.5946584343910217 1
 2 "v2" -1.3428300619125366 0.9276683330535889 1
 3 "v3" -0.21226459741592407 -1.7475401163101196 1
@@ -142,7 +147,7 @@ The CNATool supports two network file formats: Pajek and JSON. The Pajek format 
 2 3 1
 3 1 1
 3 2 1
-</code>
+...
 
 # Implementation and Empirical Results
 
@@ -150,15 +155,15 @@ The program herein described was developed considering the principle of reusabil
 
 ## Implementation
 
-The application was modeled according to the object-oriented paradigm. **Figure 3** shows the diagram of the implemented classes and their interdependencies.
+The application was modeled according to the object-oriented paradigm. \autoref{fig:pic3} shows the diagram of the implemented classes and their interdependencies.
 
-![Class diagram](Picture3.png)
+![Insert name.\label{fig:pic3}](Picture3.png)
 
 The Property class defines graph properties that will be calculated by the CNA class. This class, in turn, returns calculated values for the CNATool class, which uses them to produce the reports made available by the application. The CNATool class also provides methods used by the application when running on the command line, allowing to create graphs with complete, random, scale-free, small world and hybrid topologies, as well as batch files processing. The command line tool calls the run method of this class to process the arguments passed to the application and execute the corresponding methods provided by the CNA class.
 
-The web interface uses these three classes to provide all its functionality, privileging usability without compromising the performance and accuracy required in the analysis of complex and social networks. **Figure 4** shows the web interface when running from a desktop browser. In browsers for mobile devices, the web page reorganizes itself and assumes a more appropriate layout for small screens (responsiveness).
+The web interface uses these three classes to provide all its functionality, privileging usability without compromising the performance and accuracy required in the analysis of complex and social networks. \autoref{fig:pic4} shows the web interface when running from a desktop browser. In browsers for mobile devices, the web page reorganizes itself and assumes a more appropriate layout for small screens (responsiveness).
 
-![CNATool program interface](Picture4.png)
+![CNATool program interface.\label{fig:pic4}](Picture4.png)
 
 ## Unit tests
 
@@ -170,9 +175,9 @@ The tests are repeated countless times to eliminate the possibility of sporadic 
 
 ## Empirical Results
 
-In order to validate the accuracy of the results provided by CNATool, we created the network shown in **Figure 5** and calculated its properties using CNATool, Gephi, Pajek and SocNetV tools, the last three being the ones that most appear in the literature.
+In order to validate the accuracy of the results provided by CNATool, we created the network shown in \autoref{fig:pic5} and calculated its properties using CNATool, Gephi, Pajek and SocNetV tools, the last three being the ones that most appear in the literature.
 
-![Network used to measure the precision of the results presented by CNATool](Picture5.png)
+![Network used to measure the precision of the results presented by CNATool.\label{fig:pic5}](Picture5.png)
 
 From the results presented in **Table 2**, it can be seen that the precision of the calculations of the four tools is very close. The Pajek application showed better accuracy than the others when calculating density, average clustering coefficient and average shortest path. In relation to the other properties, CNATool, Pajek and SocNetV applications presented the same results. The Gephi tool showed less precision than the others when calculating the density, the average clustering coefficient and the average shortest path.
 
@@ -210,9 +215,9 @@ To calculate the properties of the created graph, select the Calculate Propertie
 
 The created graph presents a random organization of the vertices. To modify this layout, a layout algorithm must be selected in the properties panel. Two algorithms are supported: Force Atlas 2 and No Overlap.
 
-**Figure 6** presents the activity diagrams of CNATool's main functionalities.
+\autoref{fig:pic6} presents the activity diagrams of CNATool's main functionalities.
 
-![Activity diagram of the main functionalities of the CNATool program](Picture6.png)
+![Activity diagram of the main functionalities of the CNATool program.\label{fig:pic6}](Picture6.png)
 
 # Impact
 

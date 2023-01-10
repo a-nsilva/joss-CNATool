@@ -74,13 +74,15 @@ Next, we will present the requirements taken into consideration for the CNATool 
 
 # Problems and Background 
 
-@Newman2003 presents the main concepts involved in complex and social network analysis. The author discusses the types of networks, topologies, local and global properties. Regarding the types of networks, Newman highlights social, informational, technological and biological networks. These networks, despite having different natures, present common properties such as number of vertices, number of edges, density [@Pereira2016; @Chatterjee2007], average degree, average clustering coefficient [@Schank2005], average shortest path [@Johnson1977], diameter [@Razzaque2008] and efficiency [@Latora2001]. And even at micro scale, similar parameters are observed, highlighting the clustering coefficient and the closeness [@Freeman1978; @Freeman1979] citacao 28 and betweenness [@Freeman1977; @Brandes2001; @Barthelemy2004; @Curado2022] centralities. With regard to topologies, networks of apparently different natures, such as social and biological, often present phenomena common to small-world [@Watts1998; @Marchiori2000; @Emmert2006; @Bakshy2011] and scale-free networks [@Barabasi2002; @Crucitti2003].
+@Newman2003 presents the main concepts involved in complex and social network analysis. The author discusses the types of networks, topologies, local and global properties. Regarding the types of networks, Newman highlights social, informational, technological and biological networks. These networks, despite having different natures, present common properties such as number of vertices, number of edges, density [@Pereira2016; @Chatterjee2007], average degree, average clustering coefficient [@Schank2005], average shortest path [@Johnson1977], diameter [@Razzaque2008] and efficiency [@Latora2001]. And even at micro scale, similar parameters are observed, highlighting the clustering coefficient and the closeness [@Freeman1978; @Freeman1979] **citacao 28** and betweenness [@Freeman1977; @Brandes2001; @Barthelemy2004; @Curado2022] centralities. With regard to topologies, networks of apparently different natures, such as social and biological, often present phenomena common to small-world [@Watts1998; @Marchiori2000; @Emmert2006; @Bakshy2011] and scale-free networks [@Barabasi2002; @Crucitti2003].
 
 These similarities allow the use of the same software for the analysis of different phenomena in different study objects, as long as these phenomena and objects can be expressed as network diagrams (graphs).
 
-This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [@Teixeira2010]. **Table 1** presents a summary of the main features presented by each of the analyzed programs.
+This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [@Teixeira2010]. **Table 1** presents a summary of the main features presented by each of the analyzed programs. \autoref{tab:tab1}
 
 CNATool's development took these aspects into consideration, prioritizing accuracy and speed, but not neglecting parameters such as usability and mobility.
+
+![Mind map of concepts involving analysis of complex networks. Green means high; yellow means medium and; red mean low value. Olive highlights CNATool’s advantages.\label{fig:pic1}](Picture1.png){ width=90% }
 
 <div align="center">
  
@@ -97,7 +99,7 @@ CNATool's development took these aspects into consideration, prioritizing accura
 | Calculates Efficiency	| Yes	| No	| No	| No |
 | Calculates Incidence-fidelity	| Yes	| No	| No	| No |
 | Uses the GPU to speed up calculations	| Yes	| No	| No	| No |
-  
+  ![Name.\label{tab:tab1}]
 </div>
 
 Table 1: Summary of the main features presented by each of the analyzed programs.
@@ -105,8 +107,6 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 # Software Framework 
 
 The mind map presented in \autoref{fig:fig1} allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in \autoref{fig:pic2}. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
-
-![Class diagram.\label{fig:pic1}](Picture1.png){ width=90% }
 
 ![Use case diagram.\label{fig:pic2}](Picture2.png) { width=90% }
 
@@ -157,7 +157,7 @@ The program herein described was developed considering the principle of reusabil
 
 The application was modeled according to the object-oriented paradigm. \autoref{fig:pic3} shows the diagram of the implemented classes and their interdependencies.
 
-![Insert name.\label{fig:pic3}](Picture3.png)
+![Class diagram.\label{fig:pic3}](Picture3.png)
 
 The Property class defines graph properties that will be calculated by the CNA class. This class, in turn, returns calculated values for the CNATool class, which uses them to produce the reports made available by the application. The CNATool class also provides methods used by the application when running on the command line, allowing to create graphs with complete, random, scale-free, small world and hybrid topologies, as well as batch files processing. The command line tool calls the run method of this class to process the arguments passed to the application and execute the corresponding methods provided by the CNA class.
 

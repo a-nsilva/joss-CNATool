@@ -177,7 +177,7 @@ The tests are repeated countless times to eliminate the possibility of sporadic 
 
 In order to validate the accuracy of the results provided by CNATool, we created the network shown in \autoref{fig:pic5} and calculated its properties using CNATool, Gephi, Pajek and SocNetV tools, the last three being the ones that most appear in the literature.
 
-![Network used to measure the precision of the results presented by CNATool.\label{fig:pic5}](Picture5.png)
+![Network used to measure the precision of the results presented by CNATool.\label{fig:pic5}](Picture5.png){ width=70% }
 
 From the results presented in **Table 2**, it can be seen that the precision of the calculations of the four tools is very close. The Pajek application showed better accuracy than the others when calculating density, average clustering coefficient and average shortest path. In relation to the other properties, CNATool, Pajek and SocNetV applications presented the same results. The Gephi tool showed less precision than the others when calculating the density, the average clustering coefficient and the average shortest path.
 

@@ -10,19 +10,8 @@ tags:
   - centrality
   - Pajek 
 authors:
-  - name: Christopher Pockrandt
-    affiliation: "1, 2"
-    corresponding: true
-    email: pockrandt@jhu.edu
-  - name: Aleksey V. Zimin
-    affiliation: "1, 2"
-  - name: Steven L. Salzberg
-    affiliation: "1, 2, 3, 4"
-    corresponding: true
-    email: salzberg@jhu.edu
-
-authors:
   - name: Roberto Luiz Souza Monteiro
+  - orcid: 0000-0002-3100-523X
     affiliation: "1, 2"
     corresponding: true
     email: roberto.monteiro@fieb.org.br
@@ -51,14 +40,15 @@ authors:
     corresponding: true
     email: mbfigueredo@uneb.br
 affiliations:
- - name: SENAI CIMATEC University, Brasil
+ - name: SENAI CIMATEC University, Brasil \newline
    index: 1
- - name: Universidade do Estado da Bahia, Brasil
+ - name: Universidade do Estado da Bahia, Brasil \newline
    index: 2
- - name: Universidade Estadual de Santa Cruz, Brasil
+ - name: Universidade Estadual de Santa Cruz, Brasil \newline
    index: 3
+   
 date: 29 Dezembro 2022
-bibliography: paperCNATool.bib
+bibliography: paper.bib
 
 ---
 
@@ -112,7 +102,7 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 
 The mind map presented in **Figure 1** allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in **Figure 2**. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
 
-![Class diagram](Picture1.png)
+![Class diagram. `texto[1]`\label{fig:pic1}](Picture1.png){ width=90% }
 
 ![Use case diagram](Picture2.png)
 

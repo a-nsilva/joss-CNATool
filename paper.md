@@ -17,26 +17,20 @@ authors:
     email: roberto.monteiro@fieb.org.br
   - name: Renata Souza Freitas Dantas Barreto
     affiliation: 2
-    email: renatasouzabarreto@gmail.com
   - name: Hernane Borges de Barros Pereira
     orcid: 0000-0001-7436-8818
     affiliation: "1, 2"
-    email: hbbpereira@gmail.com
   - name: Andréia Rita da Silva
     affiliation: 3
-    email: andreiarita@gmail.com
   - name: Alexandre do Nascimento Silva
     orcid: 0000-0001-7436-8818
     affiliation: "2, 3"
-    email: alnsilva@uesc.br
   - name: José Roberto de Araújo Fontoura
     orcid: 0000-0001-7436-8818
     affiliation: 2
-    email: jfontoura@uneb.br
   - name: Marcos Batista Figueredo
     orcid: 0000-0001-7436-8818
     affiliation: 2
-    email: mbfigueredo@uneb.br
 affiliations:
  - name: SENAI CIMATEC University, Brasil \newline
    index: 1

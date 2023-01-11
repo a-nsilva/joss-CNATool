@@ -17,31 +17,25 @@ authors:
     email: roberto.monteiro@fieb.org.br
   - name: Renata Souza Freitas Dantas Barreto
     affiliation: 2
-    corresponding: true
     email: renatasouzabarreto@gmail.com
   - name: Hernane Borges de Barros Pereira
     orcid: 0000-0001-7436-8818
     affiliation: "1, 2"
-    corresponding: true
     email: hbbpereira@gmail.com
   - name: Andréia Rita da Silva
     affiliation: 3
-    corresponding: true
     email: andreiarita@gmail.com
   - name: Alexandre do Nascimento Silva
     orcid: 0000-0001-7436-8818
     affiliation: "2, 3"
-    corresponding: true
     email: alnsilva@uesc.br
   - name: José Roberto de Araújo Fontoura
     orcid: 0000-0001-7436-8818
     affiliation: 2
-    corresponding: true
     email: jfontoura@uneb.br
   - name: Marcos Batista Figueredo
     orcid: 0000-0001-7436-8818
     affiliation: 2
-    corresponding: true
     email: mbfigueredo@uneb.br
 affiliations:
  - name: SENAI CIMATEC University, Brasil \newline
@@ -78,7 +72,7 @@ Next, we will present the requirements taken into consideration for the CNATool 
 
 These similarities allow the use of the same software for the analysis of different phenomena in different study objects, as long as these phenomena and objects can be expressed as network diagrams (graphs).
 
-This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [@Teixeira2010]. **Table 1** presents a summary of the main features presented by each of the analyzed programs. \autoref{tab:tab1}
+This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [@Teixeira2010]. **Table 1** presents a summary of the main features presented by each of the analyzed programs.
 
 CNATool's development took these aspects into consideration, prioritizing accuracy and speed, but not neglecting parameters such as usability and mobility.
 
@@ -99,7 +93,7 @@ CNATool's development took these aspects into consideration, prioritizing accura
 | Calculates Efficiency	| Yes	| No	| No	| No |
 | Calculates Incidence-fidelity	| Yes	| No	| No	| No |
 | Uses the GPU to speed up calculations	| Yes	| No	| No	| No |
-  ![Name.\label{tab:tab1}]
+  
 </div>
 
 Table 1: Summary of the main features presented by each of the analyzed programs.
@@ -108,7 +102,7 @@ Table 1: Summary of the main features presented by each of the analyzed programs
 
 The mind map presented in \autoref{fig:fig1} allowed to define the requirements for the CNATool application. These requirements were formalized in the use-case diagram illustrated in \autoref{fig:pic2}. This diagram summarizes the minimal functionalities that, based on data presented in the literature, a complex network analysis software should have.
 
-![Use case diagram.\label{fig:pic2}](Picture2.png) { width=90% }
+![Use case diagram.\label{fig:pic2}](Picture2.png)
 
 ## Software Architecture
 
@@ -135,7 +129,7 @@ Currently, CNATool offers the following features:
 
 The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
 
-...
+<code>
 *Vertices 3
 1 "v1" 1.4938470125198364 0.5946584343910217 1
 2 "v2" -1.3428300619125366 0.9276683330535889 1
@@ -147,7 +141,7 @@ The CNATool supports two network file formats: Pajek and JSON. The Pajek format 
 2 3 1
 3 1 1
 3 2 1
-...
+</code>
 
 # Implementation and Empirical Results
 

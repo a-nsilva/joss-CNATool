@@ -21,7 +21,7 @@ authors:
     orcid: 0000-0001-7436-8818
     affiliation: "1, 2"
   - name: Andréia Rita da Silva
-    affiliation: 3
+    affiliation: 2
   - name: Alexandre do Nascimento Silva
     orcid: 0000-0001-7436-8818
     affiliation: "2, 3"
@@ -66,13 +66,11 @@ Next, we will present the requirements taken into consideration for the CNATool 
 
 These similarities allow the use of the same software for the analysis of different phenomena in different study objects, as long as these phenomena and objects can be expressed as network diagrams (graphs).
 
-This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [@Teixeira2010]. **Table 1** presents a summary of the main features presented by each of the analyzed programs.
+This premise has led us to consolidate the main parameters used by the authors in the mental map presented in Figure 1. In this map we highlight, besides the network properties and topologies found in the literature, the main free software used in the references surveyed. In the mind map, the Tools node presents the software Gephi, Pajek, SocNetV and CNATool (the tool described in this article). For comparison purposes, we have considered the aspects accuracy, complexity of use, operating platform, and computing technology. It is clear from this graph that the three softwares are accurate, differentiating with respect to the complexity of operation, operational platform, and computing technology. In this respect it is important to stress that an increase in complexity does not represent a demerit but stems from a greater number of resources presented by the software. Likewise, a limitation regarding the operating platform does not invalidate its use but is only restricted to users of the operating systems highlighted in the graph. On the other hand, the computing technology used represents a great differential. Applications capable of using the graphics card processing cores (GPU) present superior performance, especially when processing graphs with a large number of vertices and edges. In this research, only CNATool offered this possibility. Moreover, CNATool implements some properties not found in other software, for example incidence-fidelity index [@Teixeira2010]. **Table 1** presents a summary of the main features presented by each of the analyzed programs. \autoref{tb:tb1}
 
 CNATool's development took these aspects into consideration, prioritizing accuracy and speed, but not neglecting parameters such as usability and mobility.
 
-![Mind map of concepts involving analysis of complex networks. Green means high; yellow means medium and; red mean low value. Olive highlights CNATool’s advantages.\label{fig:pic1}](Picture1.png){ width=90% }
-
-<div align="center">
+![Mind map of concepts involving analysis of complex networks. Green means high; yellow means medium and; red mean low value. Olive highlights CNATool’s advantages.\label{fig:pic1}](Picture1.png)
  
 | Feature	| CNATool	| Gephi	| Pajek	| SocNetV |
 | :---- | ---- | ---- | ---- | ----: |
@@ -87,9 +85,7 @@ CNATool's development took these aspects into consideration, prioritizing accura
 | Calculates Efficiency	| Yes	| No	| No	| No |
 | Calculates Incidence-fidelity	| Yes	| No	| No	| No |
 | Uses the GPU to speed up calculations	| Yes	| No	| No	| No |
-  
-</div>
-
+\label{tb:tb1}
 Table 1: Summary of the main features presented by each of the analyzed programs.
 
 # Software Framework 
@@ -123,7 +119,7 @@ Currently, CNATool offers the following features:
 
 The CNATool supports two network file formats: Pajek and JSON. The Pajek format consists of a human-readable text file, where vertices (id, label and plane coordinates, as well as vertex diameter) and edges (origin vertex, destination vertex and edge weight) are defined.  The following code fragment presents a graph with 3 vertices and 3 edges:
 
-<code>
+```
 *Vertices 3
 1 "v1" 1.4938470125198364 0.5946584343910217 1
 2 "v2" -1.3428300619125366 0.9276683330535889 1
@@ -135,7 +131,7 @@ The CNATool supports two network file formats: Pajek and JSON. The Pajek format 
 2 3 1
 3 1 1
 3 2 1
-</code>
+```
 
 # Implementation and Empirical Results
 
@@ -167,11 +163,9 @@ In order to validate the accuracy of the results provided by CNATool, we created
 
 ![Network used to measure the precision of the results presented by CNATool.\label{fig:pic5}](Picture5.png){ width=70% }
 
-From the results presented in **Table 2**, it can be seen that the precision of the calculations of the four tools is very close. The Pajek application showed better accuracy than the others when calculating density, average clustering coefficient and average shortest path. In relation to the other properties, CNATool, Pajek and SocNetV applications presented the same results. The Gephi tool showed less precision than the others when calculating the density, the average clustering coefficient and the average shortest path.
+From the results presented in **Table 2**, it can be seen that the precision of the calculations of the four tools is very close. The Pajek application showed better accuracy than the others when calculating density, average clustering coefficient and average shortest path. In relation to the other properties, CNATool, Pajek and SocNetV applications presented the same results. The Gephi tool showed less precision than the others when calculating the density, the average clustering coefficient and the average shortest path. \autoref{tb:tb2}
 
 These differences, however, do not invalidate any of the tools presented, as for most problems involving analysis of complex networks, 3 decimal digits are sufficient
-
-<div align="center">
  
 | Property	| CNATool	| Gephi	| Pajek	| SocNetV |
 | :---- | ---- | ---- | ---- | ----: |
@@ -183,9 +177,7 @@ These differences, however, do not invalidate any of the tools presented, as for
 | Average Shortest Path	| 2.45140	| 2.45100	| 2.45143	| 2.45140 |
 | Diameter	| 5	| 5	| 5	| 5 |
 | Global Efficiency	| 0.4520	| No	| No	| No |
-  
-</div>
-
+\label{tb:tb2}
 Table 2: Comparison of results obtained using the main complex network analysis software.
 
 # Illustrative Examples

@@ -86,7 +86,7 @@ CNATool's development took these aspects into consideration, prioritizing accura
 | Calculates Incidence-fidelity	| Yes	| No	| No	| No |
 | Uses the GPU to speed up calculations	| Yes	| No	| No	| No |
 \label{tb:tb1}
-Table 1: Summary of the main features presented by each of the analyzed programs.
+Table: Summary of the main features presented by each of the analyzed programs.
 
 # Software Framework 
 
@@ -178,7 +178,7 @@ These differences, however, do not invalidate any of the tools presented, as for
 | Diameter	| 5	| 5	| 5	| 5 |
 | Global Efficiency	| 0.4520	| No	| No	| No |
 \label{tb:tb2}
-Table 2: Comparison of results obtained using the main complex network analysis software.
+Table: Comparison of results obtained using the main complex network analysis software.
 
 # Illustrative Examples
 

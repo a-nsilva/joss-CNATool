@@ -11,26 +11,27 @@ tags:
   - Pajek 
 authors:
   - name: Roberto Luiz Souza Monteiro
-    orcid: 0000-0001-7436-8818
+    orcid: 0000-0002-3931-5953
     affiliation: "1, 2"
     corresponding: true
     email: roberto.monteiro@fieb.org.br
   - name: Renata Souza Freitas Dantas Barreto
     affiliation: 2
-  - name: Hernane Borges de Barros Pereira
-    orcid: 0000-0001-7436-8818
-    affiliation: "1, 2"
+    orcid: 0000-0003-3042-2493
   - name: Andréia Rita da Silva
     affiliation: 2
   - name: Alexandre do Nascimento Silva
     orcid: 0000-0001-7436-8818
     affiliation: "2, 3"
   - name: José Roberto de Araújo Fontoura
-    orcid: 0000-0001-7436-8818
+    orcid: 0000-0002-9703-835X
     affiliation: 2
   - name: Marcos Batista Figueredo
-    orcid: 0000-0001-7436-8818
+    orcid: 0000-0002-8193-5419
     affiliation: 2
+  - name: Hernane Borges de Barros Pereira
+    orcid: 0000-0001-7576-9267
+    affiliation: "1, 2"
 affiliations:
  - name: SENAI CIMATEC University, Brasil \newline
    index: 1
